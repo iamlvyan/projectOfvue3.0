@@ -2,7 +2,7 @@
     <div class="login-page">
         <div class="login-content">
             <ul class="tips">
-                <li v-for="item in topList" :class="{ active: item.current }" @click="toggleMuen(item)">{{ item.text }}</li>
+                <li v-for="item in topList"  :key='item' :class="{ active: item.current }" @click="toggleMuen(item)">{{ item.text }}</li>
             </ul>
             <!--表单-->
            <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" size="medium" class="form">
