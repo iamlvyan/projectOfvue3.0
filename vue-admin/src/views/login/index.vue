@@ -2,7 +2,7 @@
     <div class="login-page">
         <div class="login-content">
             <ul class="tips">
-                <li v-for="item in topList"  :key='item' :class="{ active: item.current }" @click="toggleMuen(item)">{{ item.text }}</li>
+                <li v-for="item in topList" :class="{ active: item.current }" @click="toggleMuen(item)">{{ item.text }}</li>
             </ul>
             <!--表单-->
            <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" size="medium" class="form">
@@ -13,6 +13,10 @@
                 <el-form-item prop="pass" class='form-input'>
                     <label>密码</label>
                     <el-input type="password" v-model.trim="ruleForm.pass" autocomplete="off" maxlength=20 minlength=8></el-input>
+                </el-form-item>
+                <el-form-item  prop="checkPass" class='form-input' v-if="model == 'register'">
+                    <label>确认密码</label>
+                    <el-input type="password" v-model="ruleForm.checkPass" autocomplete="off"></el-input>
                 </el-form-item>
                 <el-form-item prop="code" class='form-input'>
                     <label>验证码</label>
@@ -34,20 +38,20 @@
     </div>
 </template>
 <script>
+import {email,codeCount,code,password,passwordCount} from '@/untils/valiu';
 export default {
     name: 'login',
+    model: 'register',
      data() {
          //验证验证码
          var checkCode = (rule, value, callback) => {
-             let reg = /^[0-9]*$/ ;
-             let count =  /^[0-9]*.{6}$/ ;
         if (value==='') {
            callback(new Error('验证码不能为空'));
         }
-        else if(!reg.test(value)){
+        else if(code(value)){
             callback(new Error('验证码格式不正确'));
         }
-        else if(!count.test(value)){
+        else if(codeCount(value)){
             callback(new Error('验证码为6位数字'));
         }
         else{
@@ -56,10 +60,9 @@ export default {
       };
       //验证用户名
       var validateUser = (rule, value, callback) => {
-          let reg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
         if (value === '') {
           callback(new Error('请输入邮箱'));
-        } else if(!reg.test(value)){
+        } else if(email(value)){
             callback(new Error('邮箱格式不正确'));
         }else {
           callback();
@@ -67,27 +70,40 @@ export default {
       };
       //验证密码
       var validatePassword = (rule, value, callback) => {
-          let reg = /(?!^\d+$)(?!^[a-zA-Z]+$)[0-9a-zA-Z]/;
-          let count = /(?!^\d+$)(?!^[a-zA-Z]+$)[0-9a-zA-Z]{8,20}/;
+          
+         
         if (value === '') {
           callback(new Error('请输入密码'));
-        } else if(!reg.test(value)){
+        } 
+        else if(password(value)){
             callback(new Error('密码格式为字母数字组合'));
-        }else if(!count.test(value)){
+        }
+        else if(passwordCount(value)){
             callback(new Error('密码长度为8-20位'));
         }
         else{
           callback();
         }};
+        //重复密码
+         var validatePass2 = (rule, value, callback) => {
+        if (value === '') {
+          callback(new Error('请再次输入密码'));
+        } else if (value !== this.ruleForm.pass) {
+          callback(new Error('两次输入密码不一致!'));
+        } else {
+          callback();
+        }
+      };
       return {
         topList: [
-            { text: '登录',current:true },
-            { text: '注册',current:false }
+            { text: '登录',current:true,type:'login' },
+            { text: '注册',current:false,type:'register' }
         ],
         ruleForm: {
           user: '',
           pass: '',
-          code: ''
+          code: '',
+          checkPass: ''
         },
         rules: {
           user: [
@@ -95,6 +111,9 @@ export default {
           ],
           pass: [
             { validator: validatePassword, trigger: 'blur' }
+          ],
+          checkPass: [
+            { validator: validatePass2, trigger: 'blur' }
           ],
           code: [
             { validator: checkCode, trigger: 'blur' }
@@ -104,6 +123,7 @@ export default {
     },
     methods: {
         toggleMuen(data){
+            this.model=data.type;
             this.topList.forEach(element=>{element.current=false});
             data.current=true
         },
