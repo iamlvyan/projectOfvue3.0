@@ -14,10 +14,10 @@ export function passwordCount(value) {
 }
 /*验证验证码1.验证格式为纯数字2.验证长度为6位 */
 export function code(value) {
-    let reg = /^[0-9]*$/;
+    let reg = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]*$/;
     return !reg.test(value) ? true : false;
 }
 export function codeCount(value) {
-    let count = /^[0-9]*.{6}$/;
+    let count = /^[0-9A-Za-z]*.{6}$/;
     return !count.test(value) ? true : false;
 }

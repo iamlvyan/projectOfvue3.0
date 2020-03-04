@@ -2,46 +2,46 @@
     <div class="login-page">
         <div class="login-content">
             <ul class="tips">
-                <li v-for="item in topList" :class="{ active: item.current }" @click="toggleMuen(item)">{{ item.text }}</li>
+                <li v-for="item in topList" :key=item.id :class="{ active: item.current }" @click="toggleMuen(item)">{{ item.text }}</li>
             </ul>
             <!--表单-->
            <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" size="medium" class="form">
                 <el-form-item prop="user" class='form-input'>
-                    <label>邮箱</label>
-                    <el-input type="text" v-model.trim="ruleForm.user" autocomplete="off"></el-input>
+                    <label for="user">邮箱</label>
+                    <el-input type="text" id="user" v-model.trim="ruleForm.user" autocomplete="off"></el-input>
                 </el-form-item>
                 <el-form-item prop="pass" class='form-input'>
-                    <label>密码</label>
-                    <el-input type="password" v-model.trim="ruleForm.pass" autocomplete="off" maxlength=20 minlength=8></el-input>
+                    <label for="password">密码</label>
+                    <el-input type="password" id="password" v-model.trim="ruleForm.pass" autocomplete="off" maxlength=20 minlength=8></el-input>
                 </el-form-item>
-                <el-form-item  prop="checkPass" class='form-input' v-if="model == 'register'">
-                    <label>确认密码</label>
-                    <el-input type="password" v-model="ruleForm.checkPass" autocomplete="off"></el-input>
+                <el-form-item  prop="checkPass" class='form-input' v-if="model=='register'">
+                    <label for="checkpass">确认密码</label>
+                    <el-input type="password" id="checkpass" v-model="ruleForm.checkPass" autocomplete="off"></el-input>
                 </el-form-item>
                 <el-form-item prop="code" class='form-input'>
-                    <label>验证码</label>
+                    <label for="code">验证码</label>
                     <el-row :gutter="15">
                         <el-col :span="14">
-                            <el-input v-model.number="ruleForm.code" maxlength=6 minlength=6></el-input>
+                            <el-input v-model.trim="ruleForm.code" id="code" maxlength=6 minlength=6></el-input>
                         </el-col>
                         <el-col :span="10">
-                            <el-button type="success" class="button">获取验证码</el-button>
+                            <el-button type="success" class="button" @click="getSms()">获取验证码</el-button>
                         </el-col>
                     </el-row>
                 </el-form-item>
                 
                 <el-form-item class='form-input'>
-                    <el-button type="danger" @click="submitForm('ruleForm')" class="button">登录</el-button>
+                    <el-button type="danger" @click="submitForm('ruleForm')" class="button" :disabled="buttonDisabled">{{model==="login"?"登录":"注册"}}</el-button>
                 </el-form-item>
             </el-form>
         </div>
     </div>
 </template>
 <script>
+import {GetSms} from '@/api/login'
 import {email,codeCount,code,password,passwordCount} from '@/untils/valiu';
 export default {
     name: 'login',
-    model: 'register',
      data() {
          //验证验证码
          var checkCode = (rule, value, callback) => {
@@ -52,7 +52,7 @@ export default {
             callback(new Error('验证码格式不正确'));
         }
         else if(codeCount(value)){
-            callback(new Error('验证码为6位数字'));
+            callback(new Error('验证码为6位'));
         }
         else{
               callback();
@@ -95,6 +95,8 @@ export default {
         }
       };
       return {
+         model: 'login',
+         buttonDisabled:true,
         topList: [
             { text: '登录',current:true,type:'login' },
             { text: '注册',current:false,type:'register' }
@@ -126,6 +128,19 @@ export default {
             this.model=data.type;
             this.topList.forEach(element=>{element.current=false});
             data.current=true
+        },
+        /**
+         * 获取验证码
+         */
+        getSms(){
+          /*  if(this.ruleForm.user==''){
+            this.$message({
+            showClose: true,
+            message: data.message,
+            type: 'error'
+          }); 
+          } */
+          GetSms({username:this.ruleForm.user,module:'login'});
         },
         submitForm(formName) {
         this.$refs[formName].validate((valid) => {
