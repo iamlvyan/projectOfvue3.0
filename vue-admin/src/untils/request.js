@@ -31,6 +31,10 @@ server.interceptors.response.use(function(response) {
             type: 'error'
         });
     } else {
+        Message({
+            message: data.message,
+            type: 'success'
+        })
         return response;
     }
 }, function(error) {

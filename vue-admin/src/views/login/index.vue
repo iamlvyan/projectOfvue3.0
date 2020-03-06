@@ -127,7 +127,8 @@ export default {
         toggleMuen(data){
             this.model=data.type;
             this.topList.forEach(element=>{element.current=false});
-            data.current=true
+            data.current=true;
+            this.$refs['ruleForm'].resetFields();
         },
         /**
          * 获取验证码
@@ -140,7 +141,7 @@ export default {
             type: 'error'
           }); 
           } */
-          GetSms({username:this.ruleForm.user,module:'login'});
+          GetSms({username:this.ruleForm.user,module:this.model});
         },
         submitForm(formName) {
         this.$refs[formName].validate((valid) => {
