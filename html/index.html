@@ -13,14 +13,180 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!--浏览器的渲染方式，以高版本的ie来渲染-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="../css/normalize.css">
     <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/swiper.css">
 </head>
 
 <body>
     <div class="content">
-
+        <header>
+            <!--logo-->
+            <h1 class='logo'>
+                <a href="index.html">
+                    <img src="../img/logo.png" title="朗朗口腔">
+                </a>
+            </h1>
+            <!--导航栏-->
+            <div class="header-right">
+                <!--顶部菜单-->
+                <div class="top-menu">
+                    <span>朗朗口腔集团官网</span>
+                    <i>|</i>
+                    <span>0755-86566573</span>
+                    <i>|</i>
+                    <div class="language"><i id="language">中文</i><i class="arrow"></i>
+                        <ul class="language-menu" id="languageMenu">
+                            <li class="language-menu-content">中文</li>
+                            <li class="language-menu-content">英文</li>
+                        </ul>
+                    </div>
+                </div>
+                <!--导航栏-->
+                <ul class="nav">
+                    <li class="nav-li">首页</li>
+                    <li class="nav-li">走进朗朗
+                        <ul class=nav-child>
+                            <li>朗朗简介</li>
+                            <li>朗朗优势</li>
+                            <li>核心团队</li>
+                            <li>朗朗历程</li>
+                        </ul>
+                    </li>
+                    <li class="nav-li">咨询动态</li>
+                    <li class="nav-li">合作伙伴</li>
+                    <li class="nav-li">辅助功能</li>
+                </ul>
+            </div>
+        </header>
+        <!--轮播图-->
+        <div class="banner">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <a href="javascripr:;" title="朗朗口腔">
+                            <img src="../img/banner.png" alt="" title="朗朗口腔">
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="javascripr:;" title="朗朗口腔">
+                            <img src="../img/banner.png" alt="" title="朗朗口腔">
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="javascripr:;" title="朗朗口腔">
+                            <img src="../img/banner.png" alt="" title="朗朗口腔">
+                        </a>
+                    </div>
+                </div>
+                <!-- 如果需要分页器 -->
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+        <div class="web-content">
+            <div class="content-oralCavity">
+                <h2 class="content-oralCavity-title">朗朗口腔</h2>
+                <p class="content-oralCavity-title-des">呵护牙齿健康 创造美好未来 | CARE FOR TEETH TO CREATE A BETTER FUTURE</p>
+                <ul class="content-oralCavity-ad">
+                    <li class="content-oralCavity-ad-li">
+                        <a href="javascript:;">
+                            <img src="../img/img1.png" alt="" title="朗朗口腔">
+                            <p class="ad-title">朗朗口腔</p>
+                            <p class="ad-describe">诊所内设有典雅舒适，风格各异的独立诊疗室，如奇趣可爱的儿童诊室，适用女性需求的HELLO Kitty</p>
+                        </a>
+                    </li>
+                    <li class="content-oralCavity-ad-li">
+                        <a href="javascript:;">
+                            <img src="../img/img2.png" alt="" title="朗朗口腔">
+                            <p class="ad-title">舒适的就诊环境</p>
+                            <p class="ad-describe">诊所内设有典雅舒适，风格各异的独立诊疗室，如奇趣可爱的儿童诊室，适用女性需求的HELLO Kitty</p>
+                        </a>
+                    </li>
+                    <li class="content-oralCavity-ad-li">
+                        <a href="javascript:;">
+                            <img src="../img/img3.png" alt="" title="朗朗口腔">
+                            <p class="ad-title">高档的诊疗设备</p>
+                            <p class="ad-describe">诊所内设有典雅舒适，风格各异的独立诊疗室，如奇趣可爱的儿童诊室，适用女性需求的HELLO Kitty</p>
+                        </a>
+                    </li>
+                </ul>
+                <button class="more"><a href="javascript:;">查看更多</a></button>
+            </div>
+            <div class="content-publicWelfare">
+                <div class="tip-banner">
+                    <h2 class="title">朗朗公益</h2>
+                    <p class="content-publicWelfare-title-des">呵护牙齿健康 创造美好未来 | CARE FOR TEETH TO CREATE A BETTER FUTURE</p>
+                </div>
+                <ul class="content-publicWelfare-ad">
+                    <li class="content-publicWelfare-ad-li">
+                        <a href="javascript:;">
+                            <img class="fir-img" src="../img/img4.png" alt="" title="爱能养老院活动">
+                            <p class="content-publicWelfare-ad-li-tip">爱能养老院活动</p>
+                            <span class="time">2020-01-25</span>
+                            <i></i>
+                            <button class="more">查看更多 →</button>
+                        </a>
+                    </li>
+                    <li class="content-publicWelfare-ad-li">
+                        <a href="javascript:;" class="scon-a">
+                            <p class="content-publicWelfare-ad-li-scr">美吉姆早教义诊活动</p>
+                            <span class="time">2020-01-25</span>
+                            <i></i>
+                            <p class="content-publicWelfare-ad-li-scr-des">在“牙齿健康从娃娃抓起”大型美吉姆公益义诊活动现场，参与活动的朗朗口腔辽宁分公司儿童口腔专家王阳有着丰富的临床治疗经验，包括儿童智齿、儿童口腔外科、儿童错颌畸形早期矫治等、囊括了儿童口腔健康的各个方面。王医生现场对孩子们进行口腔检查。</p>
+                            <button class="more-scon">查看更多 →</button>
+                            <img class="scon-img" src="../img/img6.png" alt="" title="爱能养老院活动">
+                        </a>
+                    </li>
+                    <li class="content-publicWelfare-ad-li">
+                        <a href="javascript:;" class="three-a">
+                            <img class="three-img" src="../img/img5.png" alt="" title="爱能养老院活动">
+                            <p class="content-publicWelfare-ad-li-three">商业城公益捐赠活动</p>
+                            <span class="time">2020-01-25</span>
+                            <i></i>
+                            <p class="content-publicWelfare-ad-li-thr-des">在“牙齿健康从娃娃抓起”大型美吉姆公益义诊活动现场，参与活动的朗朗口腔辽宁分公司儿童口腔专家王阳有着丰富的临床治疗经验，包括儿童智齿、儿童口腔外科、儿童错颌畸形早期矫治等、囊括了儿童口腔健康的各个方面。王医生现场对孩子们进行口腔检查。</p>
+                            <button class="more-scon">查看更多 →</button>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
+    <script src="../js/index.js"></script>
+    <script src="../js/swiper.js"></script>
+    <script>
+        var mySwiper = new Swiper('.swiper-container', {
+            direction: 'horizontal', // 水平切换选项
+            loop: true, // 循环模式选项
+            autoplay: true,
+            delay: 3000,
+
+
+            // 如果需要分页器
+            pagination: {
+                el: '.swiper-pagination',
+                type: 'custom',
+                autoplayDisableOnInteraction: false,
+                observer: true,
+                renderCustom: function(swiper, current, total) {
+                    var paginationHtml = " ";
+                    for (var i = 0; i < total; i++) {
+                        // 判断是不是激活焦点，是的话添加active类，不是就只添加基本样式类
+                        if (i === (current - 1)) {
+                            paginationHtml += '<span class="swiper-pagination-customs swiper-pagination-customs-active"></span>';
+                        } else {
+                            paginationHtml += '<span class="swiper-pagination-customs"></span>';
+                        }
+                    }
+                    return paginationHtml;
+                },
+
+                // 如果需要滚动条
+                scrollbar: {
+                    el: '.swiper-scrollbar',
+                },
+            }
+        })
+    </script>
 </body>
 
 </html>

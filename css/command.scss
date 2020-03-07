@@ -1,1 +1,169 @@
+@charset 'UTF-8';
+
 /*存放公共样式*/
+
+$dominantColor:#4ac1ae;
+$auxiliaryColor1:#000;
+$auxiliaryColor2:#646464;
+$auxiliaryColor3:#999;
+$auxiliaryColor4:#afafaf;
+$auxiliaryColor5:#b2b2b2;
+$auxiliaryColor6:#e5e5e5;
+$auxiliaryColor7:#67c23a;
+$auxiliaryColor8:#ff7878;
+
+/*清除浮动*/
+
+%clearfix {
+    *zoom: 1;
+    &:before,
+    &:after {
+        content: " ";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+
+/*左浮动*/
+
+.left {
+    float: left;
+}
+
+
+/*右浮动*/
+
+.right {
+    float: right;
+}
+
+header {
+    width: 1200px;
+    margin: 0 auto;
+    @extend%clearfix;
+    .logo {
+        @extend.left;
+        margin: 30px 0;
+        img {
+            display: block;
+        }
+    }
+    .header-right {
+        @extend.right;
+        width: 600px;
+        height: 124px;
+        /*顶部菜单*/
+        .top-menu {
+            margin-top: 7px;
+            width: 100%;
+            height: 22px;
+            text-align: right;
+            line-height: 22px;
+            font-size: 12px;
+            color: #a0a0a0;
+            cursor: default;
+            .language {
+                display: inline-block;
+                height: 22px;
+                width: 54px;
+                position: relative;
+                text-align: center;
+                background-color: #ececec;
+                cursor: pointer;
+                .language-menu {
+                    position: absolute;
+                    display: none;
+                    right: 0;
+                    top: 22px;
+                    .language-menu-content {
+                        display: block;
+                        width: 95px;
+                        height: 28px;
+                        font-size: 12px;
+                        text-align: center;
+                        line-height: 28px;
+                        background-color: #ececec;
+                        cursor: pointer;
+                        &:hover {
+                            background-color: #e0e0e0;
+                            color: #38b1bd;
+                        }
+                    }
+                }
+                .arrow {
+                    margin-left: 4px;
+                    width: 8px;
+                    height: 8px;
+                    display: inline-block;
+                    background: url(../img/arrow.png) no-repeat center center;
+                }
+                &:hover {
+                    .arrow {
+                        transform-origin: 50% 50%;
+                        transform: rotate(180deg);
+                    }
+                    .language-menu {
+                        display: block;
+                    }
+                }
+            }
+        }
+        /*导航栏*/
+        .nav {
+            @extend%clearfix;
+            @extend.left;
+            margin-top: 20px;
+            z-index: 1000;
+            .nav-li {
+                @extend.left;
+                position: relative;
+                width: 100px;
+                height: 53px;
+                text-align: center;
+                line-height: 53px;
+                margin-right: 4px;
+                font-size: 12px;
+                font-weight: 600;
+                color: #000;
+                border-radius: 5px;
+                &:hover {
+                    cursor: pointer;
+                    background-color: #f5f5f5;
+                    &:before {
+                        position: absolute;
+                        left: 50%;
+                        top: 100%;
+                        transform: translate(-50%);
+                        content: '';
+                        display: block;
+                        width: 0;
+                        height: 0;
+                        border: 14px solid;
+                        border-color: #f5f5f5 transparent transparent;
+                    }
+                    .nav-child {
+                        display: block;
+                    }
+                }
+                .nav-child {
+                    @extend%clearfix;
+                    display: none;
+                    position: relative;
+                    margin-top: 22px;
+                    background-color: #f5f5f5;
+                    z-index: 1000;
+                    /*只在定位元素上生效*/
+                    li {
+                        font-weight: 500;
+                        &:hover {
+                            background-color: #eaeaea;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
