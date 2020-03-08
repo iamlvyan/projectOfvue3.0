@@ -1,16 +1,16 @@
 @charset "UTF-8";
 /*存放公共样式*/
 /*清除浮动*/
-header, header .header-right .nav, header .header-right .nav .nav-li .nav-child {
+header, header .header-right .nav, header .header-right .nav .nav-li .nav-child, footer .footer-con {
   *zoom: 1;
 }
 
-header:before, header .header-right .nav:before, header .header-right .nav .nav-li .nav-child:before, header:after, header .header-right .nav:after, header .header-right .nav .nav-li .nav-child:after {
+header:before, header .header-right .nav:before, header .header-right .nav .nav-li .nav-child:before, footer .footer-con:before, header:after, header .header-right .nav:after, header .header-right .nav .nav-li .nav-child:after, footer .footer-con:after {
   content: " ";
   display: table;
 }
 
-header:after, header .header-right .nav:after, header .header-right .nav .nav-li .nav-child:after {
+header:after, header .header-right .nav:after, header .header-right .nav .nav-li .nav-child:after, footer .footer-con:after {
   clear: both;
 }
 
@@ -160,4 +160,35 @@ header .header-right .nav .nav-li .nav-child li {
 
 header .header-right .nav .nav-li .nav-child li:hover {
   background-color: #eaeaea;
+}
+
+footer {
+  max-width: 1922px;
+  min-width: 1200px;
+  background-color: #f8f8f8;
+}
+
+footer .footer-con {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+footer .footer-con .footer-left {
+  padding-top: 74px;
+  margin-right: 140px;
+  float: left;
+  width: 400px;
+}
+
+footer .footer-con .footer-left p {
+  margin-bottom: 31px;
+  font-size: 24px;
+  color: rgba(113, 113, 113, 0.8);
+}
+
+footer .footer-con .footer-left span {
+  display: block;
+  margin-bottom: 30px;
+  font-size: 13px;
+  color: rgba(160, 160, 160, 0.8);
 }

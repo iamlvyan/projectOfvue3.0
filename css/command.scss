@@ -2,6 +2,8 @@
 
 /*存放公共样式*/
 
+$max-width:1922px;
+$min-width:1200px;
 $dominantColor:#4ac1ae;
 $auxiliaryColor1:#000;
 $auxiliaryColor2:#646464;
@@ -163,6 +165,34 @@ header {
                         }
                     }
                 }
+            }
+        }
+    }
+}
+
+footer {
+    max-width: $max-width;
+    min-width: $min-width;
+    background-color: #f8f8f8;
+    .footer-con {
+        width: 1200px;
+        margin: 0 auto;
+        @extend%clearfix;
+        .footer-left {
+            padding-top: 74px;
+            margin-right: 140px;
+            float: left;
+            width: 400px;
+            p {
+                margin-bottom: 31px;
+                font-size: 24px;
+                color: rgba(113, 113, 113, .8);
+            }
+            span {
+                display: block;
+                margin-bottom: 30px;
+                font-size: 13px;
+                color: rgba(160, 160, 160, .8);
             }
         }
     }
