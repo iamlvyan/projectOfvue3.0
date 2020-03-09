@@ -169,8 +169,11 @@ footer {
 }
 
 footer .footer-con {
+  padding-bottom: 80px;
+  position: relative;
   width: 1200px;
   margin: 0 auto;
+  border-bottom: 1px solid rgba(113, 113, 113, 0.5);
 }
 
 footer .footer-con .footer-left {
@@ -191,4 +194,67 @@ footer .footer-con .footer-left span {
   margin-bottom: 30px;
   font-size: 13px;
   color: rgba(160, 160, 160, 0.8);
+}
+
+footer .footer-con .footer-right {
+  margin-right: 20px;
+  padding-top: 74px;
+  float: left;
+  display: block;
+}
+
+footer .footer-con .footer-right dl {
+  float: left;
+}
+
+footer .footer-con .footer-right dl:not(:first-child) {
+  margin-left: 36px;
+}
+
+footer .footer-con .footer-right dl dt {
+  padding-bottom: 18px;
+  margin-bottom: 19px;
+  width: 75px;
+  border-bottom: 1px solid #ececec;
+  color: rgba(113, 113, 113, 0.8);
+  font-size: 12px;
+  cursor: default;
+}
+
+footer .footer-con .footer-right dl dd {
+  margin-bottom: 12px;
+}
+
+footer .footer-con .footer-right dl dd a {
+  font-size: 12px;
+  color: rgba(113, 113, 113, 0.8);
+  text-decoration: none;
+}
+
+footer .footer-con .footer-right dl dd a:hover {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+footer .footer-con .footer-erweima {
+  position: absolute;
+  right: 0;
+  top: 74px;
+}
+
+footer .footer-con .footer-erweima span {
+  display: block;
+  width: 77px;
+  margin-top: 8px;
+  text-align: center;
+  font-size: 12px;
+  color: rgba(113, 113, 113, 0.8);
+}
+
+footer .footer-copy {
+  width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 16px 0;
+  font-size: 12px;
+  color: rgba(113, 113, 113, 0.8);
 }

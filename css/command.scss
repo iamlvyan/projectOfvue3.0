@@ -175,9 +175,12 @@ footer {
     min-width: $min-width;
     background-color: #f8f8f8;
     .footer-con {
+        padding-bottom: 80px;
+        position: relative;
         width: 1200px;
         margin: 0 auto;
         @extend%clearfix;
+        border-bottom: 1px solid rgba(113, 113, 113, .5);
         .footer-left {
             padding-top: 74px;
             margin-right: 140px;
@@ -195,5 +198,58 @@ footer {
                 color: rgba(160, 160, 160, .8);
             }
         }
+        .footer-right {
+            margin-right: 20px;
+            padding-top: 74px;
+            float: left;
+            display: block;
+            dl {
+                float: left;
+                &:not(:first-child) {
+                    margin-left: 36px;
+                }
+                dt {
+                    padding-bottom: 18px;
+                    margin-bottom: 19px;
+                    width: 75px;
+                    border-bottom: 1px solid #ececec;
+                    color: rgba(113, 113, 113, .8);
+                    font-size: 12px;
+                    cursor: default;
+                }
+                dd {
+                    margin-bottom: 12px;
+                    a {
+                        font-size: 12px;
+                        color: rgba(113, 113, 113, .8);
+                        text-decoration: none;
+                        &:hover {
+                            color: rgba(0, 0, 0, .8);
+                        }
+                    }
+                }
+            }
+        }
+        .footer-erweima {
+            position: absolute;
+            right: 0;
+            top: 74px;
+            span {
+                display: block;
+                width: 77px;
+                margin-top: 8px;
+                text-align: center;
+                font-size: 12px;
+                color: rgba(113, 113, 113, .8);
+            }
+        }
+    }
+    .footer-copy {
+        width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+        padding: 16px 0;
+        font-size: 12px;
+        color: rgba(113, 113, 113, .8);
     }
 }
